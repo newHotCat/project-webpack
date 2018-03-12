@@ -18,7 +18,9 @@
     "webpack": "^4.1.1"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
     "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.0.6",
     "lodash": "^4.17.5",
     "webpack-cli": "^2.0.11",
     "xml-loader": "^1.2.1"
