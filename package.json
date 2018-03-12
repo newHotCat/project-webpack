@@ -1,0 +1,17 @@
+{
+  "name": "project-webpack",
+  "version": "0.0.1",
+  "description": "webpack 学习",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "jiantong.liu",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^4.1.1"
+  }
+}
