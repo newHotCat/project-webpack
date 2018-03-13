@@ -12,9 +12,20 @@ module.exports = {
   // devServer: {   webpack-dev-server 使用
   //   contentBase: './dist'
   // },
+  module: {
+    rules:[{
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        'postcss-loader'
+      ]
+    }]
+  },
   plugins: [
     // new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
+      template: './index.html',
       title: 'Output Management'
     })
   ],
