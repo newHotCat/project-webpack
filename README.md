@@ -45,3 +45,9 @@
         IntelliJ - 在首选项(preferences)中使用搜索，查找到 "safe write" 并且禁用它。
         Vim - 在设置(settings)中增加 :set backupcopy=yes。
         WebStorm - 在 Preferences > Appearance & Behavior > System Settings 中取消选中 Use "safe write"。
+## 热更新 也是很不错
+    1. 引入 webpack
+    2. devServer 配只 hot: true
+    3.    plugins  添加两个插件  new webpack.NamedModulesPlugin(),    new webpack.HotModuleReplacementPlugin()
+    > 一下通过 node.js API
+        * 请看dev-server

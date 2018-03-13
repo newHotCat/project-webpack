@@ -1,22 +1,26 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin') 
-// const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
-  // entry: './src/index.js',
-  entry: {
-    print: './src/print.js',
-    app: './src/index.js'
-  },
-  devtool: 'inline-source-map',
-  // devServer: {   webpack-dev-server 使用
-  //   contentBase: './dist'
+  entry: './src/index.js',
+  // entry: {
+  //   print: './src/print.js',
+  //   app: './src/index.js'
   // },
+  devtool: 'inline-source-map',
+  devServer: {   //webpack-dev-server 使用
+    contentBase: './dist',
+    hot: true // 热加载
+  },
   plugins: [
-    // new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Output Management'
-    })
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ],
   output: {
     filename: 'bundle.js',

@@ -13,3 +13,9 @@ function component() {
   }
   
   document.body.appendChild(component());
+  if (module.hot) {
+    module.hot.accept('./print.js', function () {
+      console.log('accepting the updated printme module!');
+      printMe()
+    })
+  }
