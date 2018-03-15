@@ -59,3 +59,6 @@
     - 拆分出来 3 个文件 webpack.common.js webpack.dev.js webpack.prod.js   通过 webpack-merge 这个包
     - webpack4.1.1 不用 uglifyjs-webpack-plugin 这个压缩代码也可以
     - *** devtool 中 的 source-map 会导致 打包的时候打包出来 两个js文件  ***
+## 代码分离
+    - 手动拆分 是在入口 配置为对象  可以放置多个属性 来拆分 不推荐
+    new CommonsChunkplugin()  4.0 被干掉了  先忽略

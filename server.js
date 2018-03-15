@@ -7,8 +7,8 @@ const webpackDevMiddleware = require('webpack-dev-middleware')  // 着重看
 
 const app = express()
 
-// const config = require('./webpack.config.js')
-const devConfig = require('./webpack.dev.js')
+const devConfig = require('./webpack.config.js')
+// const devConfig = require('./webpack.dev.js')
 // const preConfig = require('./webpack.prod.js')
 
 const compiler = webpack(devConfig);
