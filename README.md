@@ -51,3 +51,11 @@
     3.    plugins  添加两个插件  new webpack.NamedModulesPlugin(),    new webpack.HotModuleReplacementPlugin()
     > 一下通过 node.js API
         * 请看dev-server
+## Tree Shaking
+    webpack.config.js进行mode设置  � …… � 我了
+    mode : development 不会压缩代码
+         ： production 会压缩代码
+## 生产环境配置
+    - 拆分出来 3 个文件 webpack.common.js webpack.dev.js webpack.prod.js   通过 webpack-merge 这个包
+    - webpack4.1.1 不用 uglifyjs-webpack-plugin 这个压缩代码也可以
+    - *** devtool 中 的 source-map 会导致 打包的时候打包出来 两个js文件  ***

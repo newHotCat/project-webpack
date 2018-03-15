@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = {
+  mode: 'development',
   entry: './src/index.js',
   // entry: {
   //   print: './src/print.js',
@@ -24,7 +25,6 @@ module.exports = {
   ],
   output: {
     filename: 'bundle.js',
-    filename: '[name].bundle.[hash].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   }
