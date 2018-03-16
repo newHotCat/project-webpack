@@ -63,3 +63,8 @@
     - 手动拆分 是在入口 配置为对象  可以放置多个属性 来拆分 不推荐
     new CommonsChunkplugin()  4.0 被干掉了  ~先忽略~  这里使用了  webpack 2.7.0
     - webpack 动态加载 利用了  import(/*webpackChunkname: "loadsh"*/ "lodash") f返回 promise 来加载 
+## 懒加载
+    - 这里利用了 es6 的 import().then(module=>{
+        module.default 这个是 引入模块中的方法 或者对象  
+        module.abc 这个事 单独导出的abc  值 为  123
+    })与 export let abc=123;  

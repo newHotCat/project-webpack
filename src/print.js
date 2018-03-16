@@ -1,4 +1,6 @@
-export default function printMe () {
-    // console.log('I get called from print.js ')
-    console.error('I get call from print.js 1fffff')
+console.log('The print.js module hsa loaded! See the network tab in dev tools ...');
+export let abc = 13;
+export default () => {
+    console.log('as;lfjskl')
+    console.log("Button Clicked: here \s 'some text'")
 }
