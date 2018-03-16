@@ -16,8 +16,8 @@ function component() {
   button.onclick = e => import(/* webpackChunkName: "print" */ './print').then(module => {
     var print = module.default;
     console.log(module.abc)
-    print();
-  });
+    print('ahahha');
+  });  
   return element;
 }
 
