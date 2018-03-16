@@ -4,7 +4,7 @@ const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
 
 module.exports = merge(common, {
-    mode: 'production',
+    // mode: 'production', 4.0使用
     // devtool: 'source-map'
     plugins: [
     //     new UglifyJSPlugin()

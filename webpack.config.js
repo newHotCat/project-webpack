@@ -1,31 +1,35 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const CleanWebpackPlugin = require('clean-webpack-plugin')
-const webpack = require('webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+// const webpack = require('webpack')
 
 module.exports = {
-  mode: 'development',
+  // mode: 'development',  4.0 使用
   // entry: './src/index.js',
   entry: {
-    another: './src/another-module.js',
+    // another: './src/another-module.js',
     app: './src/index.js'
   },
   devtool: 'inline-source-map',
-  devServer: {   //webpack-dev-server 使用
-    contentBase: './dist',
-    hot: true // 热加载
-  },
+  // devServer: {   //webpack-dev-server 使用
+  //   contentBase: './dist',
+  //   hot: true // 热加载
+  // },
   plugins: [
-    // new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Output Management'
     }),
-    // new webpack.NamedModulesPlugin(),
-    // new webpack.HotModuleReplacementPlugin()
+    // new webpack.NamedModulesPlugin(),  // 热加载需要
+    // new webpack.HotModuleReplacementPlugin(), // 热加载需要
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'common' // 生成的名字
+    // })
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    chunkFilename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
     // publicPath: '/'
   }
 };
