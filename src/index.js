@@ -1,24 +1,15 @@
 import _ from 'lodash'
+import numRef from './ref.json'
 // 现在，我们不再使用静态导入 lodash，而是通过使用动态导入来分离一个 chunk：
 
-function component() {
-  var element = document.createElement('div');
-  var button = document.createElement('button');
-  var br = document.createElement('br');
-
-  button.innerHTML = 'Click me and look at the console!';
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.appendChild(br);
-  element.appendChild(button);
-
-  // Note that because a network request is involved, some indication
-  // of loading would need to be shown in a production-level site/app.
-  button.onclick = e => import(/* webpackChunkName: "print" */ './print').then(module => {
-    var print = module.default;
-    console.log(module.abc)
-    print('ahahha');
-  });  
-  return element;
+export function numToWord(num) {
+  return _.reduce(numRef, (accum, ref) => {
+    return ref.num === num ? ref.word : accum;
+  }, '')
 }
 
-document.body.appendChild(component());
+export function wordToNum (word) {
+  return _.reduce(numRef, (accum, ref) => {
+    return ref.word === word && word.toLowerCase() ? ref.num : accum;
+  }, -1);
+};
