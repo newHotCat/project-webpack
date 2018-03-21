@@ -1,15 +1,11 @@
-import _ from 'lodash'
-import numRef from './ref.json'
-// 现在，我们不再使用静态导入 lodash，而是通过使用动态导入来分离一个 chunk：
+import {file, parse} from './globalls'
+function component() {
+  var element = document.createElement('div');
 
-export function numToWord(num) {
-  return _.reduce(numRef, (accum, ref) => {
-    return ref.num === num ? ref.word : accum;
-  }, '')
+  element.innerHTML = join(['Hello', 'webpack'], ' ');
+   // Assume we are in the context of `window`
+   this.alert('Hmmm, this probably isn\'t a great idea...')
+  return element;
 }
 
-export function wordToNum (word) {
-  return _.reduce(numRef, (accum, ref) => {
-    return ref.word === word && word.toLowerCase() ? ref.num : accum;
-  }, -1);
-};
+document.body.appendChild(component());

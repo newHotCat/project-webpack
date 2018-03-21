@@ -1,32 +1,26 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-
 module.exports = {
-  entry: {
-    app: './src/index.js',
-    vendor: [
-      'lodash'
-    ]
-  },
-  devtool: 'inline-source-map',
+  entry: './src/index.js',
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({
-      title: 'Caching'
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor'
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest'
-    }),
-    // new UglifyJSPlugin()
+    new webpack.ProvidePlugin({
+      // _: 'lodash'
+      join: ['lodash', 'join']
+    })
   ],
+  module: {
+    rules: [{
+      test: require.resolve('globalls.js'),
+      use: 'exports-loader?file,parse=helpers.parse'
+    }]
+  },
   output: {
-    filename: '[name].[chunkhash].js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
   }
 };
+/**
+ * 插件的意思是 如果你在某一处用到了 _ 就引入 lodash  并将它提供给需要用到他的模块
+ */
