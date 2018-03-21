@@ -25,3 +25,6 @@
     5. Manifest 
         * 你可能会感兴趣，webpack及其插件似乎“知道”应该哪些文件生成。
             答案是，通过 manifest，webpack 能够对「你的模块映射到输出 bundle 的过程」保持追踪。如果你对通过其他方式来管理 webpack 的输出更感兴趣，那么首先了解 manifest 是个好的开始。
+
+## http-server 可以迅速的运行 打包后的dist 文件
+        到 workbox-webpack-plugin' 不能打包   webpack 版本 4.1.1
