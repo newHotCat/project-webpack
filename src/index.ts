@@ -4,6 +4,9 @@ import './page/any' // 任意值 类型推论
 import './page/interfaces'
 import './page/array'
 import './page/function'
+import './page/dombom'
+import './page/ceshi'
+import './page/class'
 
 import { Person } from './page/interfaces'
 let liu: Person = {

@@ -1,5 +1,4 @@
 import { ObjectIterator } from "../../node_modules/@types/lodash/index";
-// import * as $ from '../../node_modules/@types/jquery/index'
 //  函数表达式
 let mySum = function (x: number, y:number): number {
     return x + y
@@ -53,4 +52,58 @@ console.log(getLength('123123'))
 console.log(getLength([1,2,3,4]))
 console.log(getLength(123))
 //  jQuery: (string:any) => any
-console.log($('#ff'))
+// console.log($('#ff'))
+
+// 类型别名
+
+type Name = string;
+type NameResolver = () => string
+type NameOrResolver = Name | NameResolver
+function getName(n: NameOrResolver): Name {
+    if (typeof n === 'string') {
+        return n
+    } else {
+        return n();
+    }
+}
+getName(()=> {
+    return 'haha'
+})
+
+// 字符串字面量类型
+type EventNames = 'click' | 'scroll' | 'mousemove'
+
+function handEvent( ele:number, event: EventNames) {
+    console.log(event)
+}
+
+handEvent(123, 'click')
+
+let old = [["1","2","3"],['1-1','1-2','1-3']];
+// [{name:1,age:"1-1"},{name:2,age:"1-2"},{name:1,age:"1-3"}]
+let newArr:any[] = []
+old[0].forEach((item, index): void=> {
+    newArr.push({
+       name: item,
+       age: old[1][index]
+    })
+});
+console.log(newArr)
+
+let xcatliu: [string, number, object];
+// xcatliu[0] = 'Xcat Liu';
+// xcatliu[1] = 25;
+xcatliu = ['',0, {}];
+xcatliu[0] = 'asdfasdf'
+xcatliu[1] = 12312312312
+xcatliu.push({a: 123})
+console.log(xcatliu[3])
+
+// 枚举
+enum Days {Sun, Mon, Tue, Wed, Thu, Fri, Sat};
+console.log(Days[0])
+enum color {Red, Green, blue}
+
+for (let i = 0;i < 3; i++) {
+    console.log(color[i])
+}
