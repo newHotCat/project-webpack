@@ -1,8 +1,12 @@
 # webpack 
+
 ## 起步
+
     1. npx webpack src/index.js --output dist/bundle.js   执行 npx webpack，会将我们的脚本作为入口起点，然后输出为 bundle.js
     2. webpack --config webpack.config.js 
+
 ## typeScript
+
     5 种原始数据类型 布尔 字符串 数值 Null undefined    es6 的 Symbol
     typeScript 是 javascript的超集， 为其正价了类型系统，可以编译为普通的javascript 代码。 这里我么你将会学习webpack 是如何跟 typescript 进行集成的
     - let isDone: boolean = false; 定义类型 使用冒号
@@ -17,6 +21,7 @@
 
 
 ## 专用词   
+
     类型  boolean number string null undefied
 type 定义类型
 enum 定义枚举
